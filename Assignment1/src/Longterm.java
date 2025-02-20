@@ -5,9 +5,34 @@ public class Longterm extends RentalContract {
     double rentAmount;
 
     public Longterm(String contractID, String tenantID, String propertyID, double rentAmount) {
+        buildContractID(contractID);
+        buildPropertyID(propertyID);
+        buildRentAmount(rentAmount);
+        buildTenantID(tenantID);
+    }
+
+    @Override
+    public void buildContractID(String contractID) {
         this.contractID = contractID;
-        this.tenantID = tenantID;
+    }
+    @Override
+    public void buildPropertyID(String propertyID) {
         this.propertyID = propertyID;
+    }
+
+    @Override
+    public void buildTenantID(String tenantID) {
+        this.tenantID = tenantID;
+    }
+
+    @Override
+    public void buildRentAmount(double rentAmount) {
         this.rentAmount = rentAmount;
     }
+
+    @Override
+    public Contract signContract(){
+        return new Contract(this.contractID, this.tenantID, this.propertyID, this.rentAmount);
+    }
+
 }

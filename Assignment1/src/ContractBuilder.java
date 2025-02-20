@@ -1,5 +1,5 @@
 
-public interface ContractBulder {
+public interface ContractBuilder {
     void buildContractID(String contractID);
     void buildPropertyID(String propertyID);
     void buildTenantID(String tenantID);

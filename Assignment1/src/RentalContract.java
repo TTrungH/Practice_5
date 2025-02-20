@@ -1,5 +1,4 @@
-
-public class RentalContract implements ContractBulder {
+public class RentalContract implements ContractBuilder {
     private String contractID;
     private String propertyID;
     private String tenantID;
