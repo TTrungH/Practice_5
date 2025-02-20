@@ -35,4 +35,8 @@ public class Shortterm extends RentalContract {
     public Contract signContract() {
         return new Contract(this.contractID, this.tenantID, this.propertyID, this.rentAmount);
     }
+    @Override
+    public String toString() {
+        return "ContractID: " + contractID + ", PropertyID: " + propertyID + ", TenantID: " + tenantID + ", RentAmount: " + rentAmount;
+    }
 }
