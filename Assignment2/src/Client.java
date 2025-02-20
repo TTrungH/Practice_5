@@ -25,10 +25,12 @@ public class Client {
             } catch (IOException e) {
                 System.err.println("Lỗi khi lưu file: " + e.getMessage());
             }
-           BufferedReader reader = new BufferedReader(new FileReader());
+            BufferedReader reader = new BufferedReader(new FileReader("./output.txt"));
+            String line = reader.readLine();
+            String decryptedMessage = decrypt(line, key);
+            System.out.println(decryptedMessage);
 
-            String decryptedMessage = decrypt(encryptedMessage, key);
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
