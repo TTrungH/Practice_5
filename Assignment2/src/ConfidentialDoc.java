@@ -6,7 +6,7 @@ public class ConfidentialDoc extends Document{
         this.extension = extension;
     }
     @Override
-    public void setEncryption(boolean encryption) {
+    public void setEncryption(String encryption) {
         this.encryption = encryption;
     }
     @Override

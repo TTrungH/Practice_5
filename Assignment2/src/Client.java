@@ -6,16 +6,26 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Client {
     public static void main(String[] args) {
+        String filePath = "output.txt";
         try {
-
             SecretKey key = generateKey();
 
             String message = "A bottle of water";
             String encryptedMessage = encrypt(message, key);
-
-            Document doc1 = new NormalDoc().setEncryption(encryptedMessage).setExtension(".txt").buildDoc();
+            try (FileWriter writer = new FileWriter(filePath)) {
+                writer.write(encryptedMessage);
+                System.out.println("File .txt đã được lưu thành công!");
+            } catch (IOException e) {
+                System.err.println("Lỗi khi lưu file: " + e.getMessage());
+            }
+           BufferedReader reader = new BufferedReader(new FileReader());
 
             String decryptedMessage = decrypt(encryptedMessage, key);
 
