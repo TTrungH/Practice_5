@@ -1,14 +1,21 @@
+import java.util.Scanner;
+
 public class Client {
     public static void main(String[] args) {
-        Longterm sign1 = new Longterm("1", "1", "1", 10);
+        Scanner sc = new Scanner(System.in);
+        String contractId = sc.nextLine();
+        String tenantId = sc.nextLine();
+        String propertyId = sc.nextLine();
+        double rentAmount = sc.nextDouble();
+        Longterm sign1 = new Longterm(contractId, tenantId, propertyId, rentAmount);
 
-        Shortterm sign2 = new Shortterm("2", "2", "2", 3);
+        // Shortterm sign2 = new Shortterm(contractId, tenantId, propertyId, rentAmount);
 
-        Permanent sign3 = new Permanent("3", "3", "3", 100);
+        // Permanent sign3 = new Permanent(contractId, tenantId, propertyId, rentAmount);
         
+
         System.out.println(sign1);
-        System.out.println(sign2);
-        System.out.println(sign3);
+
 
     }
 }
