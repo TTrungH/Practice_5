@@ -1,6 +1,7 @@
 package Practice_5.Assignment2.src;
 
 import java.util.Base64;
+import java.util.Scanner;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -13,11 +14,12 @@ import java.io.IOException;
 
 public class Client {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
+        String message = sc.nextLine();
         try {
             SecretKey key = generateKey();
 
-            String message = "A bottle of water";
+           
 
             String encryptedMessage = encrypt(message, key);
 
