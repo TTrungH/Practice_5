@@ -9,17 +9,15 @@ import javax.crypto.SecretKey;
 public class Client {
     public static void main(String[] args) {
         try {
-           NormalDoc 
+
             SecretKey key = generateKey();
 
-       
             String message = "A bottle of water";
             String encryptedMessage = encrypt(message, key);
-         
 
-            
+            Document doc1 = new NormalDoc().setEncryption(encryptedMessage).setExtension(".txt").buildDoc();
+
             String decryptedMessage = decrypt(encryptedMessage, key);
-            
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -3,13 +3,13 @@ package Practice_5.Assignment2.src;
 
 public class Document {
     protected String extension;
-    protected boolean encryption;
+    protected String encryption;
 
     public void setExtension(String extension) {
         this.extension = extension;
     }
 
-    public void setEncryption(boolean encryption) {
+    public void setEncryption(String encryption) {
         this.encryption = encryption;
     }
 
