@@ -1,25 +1,28 @@
 package Practice_5.Assignment2.src;
 
 
-public class Document {
+abstract class Document {
     protected String extension;
     protected String encryption;
 
-    public void setExtension(String extension) {
+    public String getEncryption() {
+        return encryption;
+    }
+
+    public Document setExtension(String extension) {
         this.extension = extension;
+        return this;
     }
 
-    public void setEncryption(String encryption) {
+    public Document setEncryption(String encryption) {
         this.encryption = encryption;
+        return this;
     }
 
-    public Document buildDoc(){
-        return new Document();
-    }
+    public abstract Document buildDoc();
 
     @Override
     public String toString() {
-        return "Document [Extension=" + extension + ", Encryption=" + encryption + "]";
+        return "Document [Extension: " + extension + ", Encryption: " + encryption + "]";
     }
 }
-

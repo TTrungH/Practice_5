@@ -13,24 +13,32 @@ import java.io.IOException;
 
 public class Client {
     public static void main(String[] args) {
-        String filePath = "output.txt";
+
         try {
             SecretKey key = generateKey();
 
             String message = "A bottle of water";
-            String encryptedMessage = encrypt(message, key);
-            try (FileWriter writer = new FileWriter(filePath)) {
-                writer.write(encryptedMessage);
-                System.out.println("File .txt đã được lưu thành công!");
-            } catch (IOException e) {
-                System.err.println("Lỗi khi lưu file: " + e.getMessage());
-            }
-            BufferedReader reader = new BufferedReader(new FileReader("./output.txt"));
-            String line = reader.readLine();
-            String decryptedMessage = decrypt(line, key);
-            System.out.println(decryptedMessage);
 
-            
+            String encryptedMessage = encrypt(message, key);
+
+            Document normalDoc = new NormalDoc()
+                    .setExtension(".txt")
+                    .setEncryption(encryptedMessage)
+                    .buildDoc();
+
+            Document confidentialDoc = new ConfidentialDoc()
+                    .setExtension(".zip")
+                    .setEncryption(encryptedMessage)
+                    .buildDoc();
+
+            String decryptedMessage = decrypt(normalDoc.getEncryption(), key);
+
+            System.out.println("Normal file decrypt txt : " + decryptedMessage);
+
+            String decryptedMessage2 = decrypt(confidentialDoc.getEncryption(), key);
+
+            System.out.println("Confidential file decrypt txt : " + decryptedMessage2);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

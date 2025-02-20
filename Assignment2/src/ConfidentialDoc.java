@@ -1,17 +1,9 @@
 package Practice_5.Assignment2.src;
 
-public class ConfidentialDoc extends Document{
+class ConfidentialDoc extends Document {
     @Override
-    public void setExtension(String extension) {
-        this.extension = extension;
+    public Document buildDoc() {
+        System.out.println("Confidential Document Created\n" + this);
+        return this;
     }
-    @Override
-    public void setEncryption(String encryption) {
-        this.encryption = encryption;
-    }
-    @Override
-    public Document buildDoc(){
-        return new Document();
-    }
-
 }
